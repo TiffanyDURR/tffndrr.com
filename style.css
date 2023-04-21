@@ -5,6 +5,9 @@ body {
   overflow: hidden;
   background-color: #1c2331;
   color: aliceblue;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  scrollbar-color: black black;
 }
 
 * {
@@ -32,22 +35,20 @@ canvas {
 }
 
 main {
-  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
   width: 1440px;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
 }
 
 #rocket {
   position: fixed;
-  top: -200px;
+  top: -80px;
   left: 50%;
   transform: translateX(-50%);
-  transition: top 1s ease-in;
+  transition: top 0.6s ease-in;
 }
 #rocket.fly {
-  top: 100px;
+  top: 400px;
   transform: translateX(-50%);
 }
 @keyframes rotate {
@@ -59,7 +60,7 @@ main {
   }
 }
 #rocket.rotate {
-  animation: rotate 1s ease-in-out forwards;
+  animation: rotate 0.5s ease-in-out forwards;
 }
 #rocket.reverse {
   transform: rotate(180deg) translateX(-50%);
@@ -72,7 +73,7 @@ header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 40px;
+  padding-top: 40px;
 }
 
 header ul {
@@ -85,6 +86,10 @@ header ul li {
   font-size: 24px;
   font-weight: 500;
   list-style-type: none;
+}
+
+header ul li a {
+  color: #c0c0c0;
 }
 
 header nav img {
@@ -128,4 +133,60 @@ header nav img {
 }
 header nav img {
   animation: slideInFromLeft 1s cubic-bezier(0.25, 0.5, 0.75, 0.9);
+}
+
+.presentation {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 80px;
+}
+
+.text {
+  width: 760px;
+  color: #c0c0c0;
+}
+
+.titles {
+  width: 600px;
+}
+
+.titles h1 {
+  font-size: 80px;
+  color: #7b9095;
+  margin-bottom: 20px;
+  font-weight: normal;
+  font-weight: 800;
+}
+
+.titles h2 {
+  font-size: 48px;
+  font-weight: normal;
+  line-height: 1.2;
+  color: #e6792f;
+}
+
+html body main section.presentation div.text p {
+  font-size: 22px;
+  line-height: 2;
+  padding-bottom: 32px;
+  text-align: justify;
+}
+
+a#link {
+  background-color: #e6792f;
+  color: #ffffff;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 40px;
+  padding-right: 40px;
+  display: inline-block;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 18px;
+  border-radius: 2px;
+}
+
+#portfolio {
+  padding-top: 1000px;
 }

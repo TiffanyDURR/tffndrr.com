@@ -3,7 +3,7 @@ const ctx = canvas.getContext("2d");
 
 function resizeCanvas() {
   canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
+  canvas.height = document.documentElement.scrollHeight;
 }
 
 resizeCanvas();
@@ -100,7 +100,7 @@ setInterval(() => {
 function addStar(e) {
   if (Date.now() - lastStarTime > 30) {
     const x = e.clientX;
-    const y = e.clientY;
+    const y = e.clientY + window.scrollY;
     const radius = Math.random() * 7 + 3;
     const alpha = 1;
     stars.push(new Star(x, y, radius, alpha));
@@ -110,7 +110,7 @@ function addStar(e) {
 
 function explode(e) {
   const x = e.clientX;
-  const y = e.clientY;
+  const y = e.clientY + window.scrollY;
   for (let i = 0; i < 50; i++) {
     const radius = Math.random() * 5 + 2;
     const alpha = 1;
@@ -147,6 +147,9 @@ const link = document.querySelector("#link");
 const rocket = document.querySelector("#rocket");
 
 link.addEventListener("click", (e) => {
+  setTimeout(() => {
+    window.location.hash = "portfolio";
+  }, 200);
   e.preventDefault();
   if (rocket.classList.contains("rotate")) {
     rocket.classList.remove("rotate");
@@ -159,9 +162,6 @@ link.addEventListener("click", (e) => {
         setTimeout(() => {
           rocket.classList.remove("fly");
           rocket.classList.remove("reverse");
-          setTimeout(() => {
-            window.location.hash = "portfolio";
-          }, 1000);
         }, 1000);
       }, 1000);
     }, 1000);
